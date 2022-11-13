@@ -1,0 +1,17 @@
+{% extends "app/padre.html" %}
+{% load static %}
+
+
+{% block contenidoquecambia %}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    {{ formulario.as_table  }}
+
+    <input type="submit" value= "enviar">
+
+</form>
+
+
+
+{% endblock %}
