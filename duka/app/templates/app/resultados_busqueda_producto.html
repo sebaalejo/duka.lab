@@ -1,0 +1,14 @@
+{% extends "app/padre.html" %}
+
+{% block contenidoquecambia %}
+
+<ul>
+{%for data in producto%}
+
+<li>{{data.tipo}}-{{data.nombre}}-{{data.precio}}</li>
+
+{%endfor%}
+
+</ul>
+
+{% endblock %}

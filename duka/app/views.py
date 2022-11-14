@@ -1,4 +1,4 @@
-from app.forms import Contacto
+from app.forms import Contacto_form
 from app.models import *
 from django.shortcuts import render
 from django.template import Context, Template
@@ -18,21 +18,31 @@ def about(request):
 def contacto(request):
 
     if request.method=="POST":
-        formulario=Contacto(request.POST)
+        formulario=Contacto_form(request.POST)
         
         if formulario.is_valid():
-            data=formulario.cleaned_data
-            contacto=Contacto(nombre=data["nombre"], apellido=data["apellido"], email=data["email"], mensaje=data["mensaje"])
-            contacto.save()
-        return render(request, "app/inicio.html")
+            datos=formulario.cleaned_data
+            contacto_data=Contacto(nombre=datos['nombre'], apellido=datos["apellido"], email=datos["email"], mensaje=datos["mensaje"])
+            contacto_data.save()
+            return render(request, "app/inicio.html")
 
-    else:
-        formulario=Contacto()
 
-    contexto={"formulario":formulario}
+
+
+    formulario=Contacto_form()
+    contexto={"formulario" : formulario}
     return render(request,  "app/contacto.html", contexto)
 
 
+def buscar_producto(request):
+
+    return render(request,"app/producto.html")
+
+def resultados_busqueda_producto(request):
+    nombre_producto=request.GET["nombre_producto"]
+
+    productos=Producto.objects.filter(nombre__icontains=nombre_producto )
+    return render(request, "app/resultados_busqueda_producto.html", {"producto":productos})
 
 
 
