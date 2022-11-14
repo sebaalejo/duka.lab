@@ -1,0 +1,13 @@
+#Proyecto pagina web DukaLab
+
+Este proyecto se desarrollo para un desafio de Coderhouse con la idea de usarlo en un futuro y que sirva como pagina principal de @duka.lab
+
+
+
+Este proyecto cuenta con dos modelos, Productos y Contacto
+
+En /producto ademas de ver los productos podemos buscar en la base de datos productos existentes
+lo cual nos lleva a /producto/resultados
+
+En /contacto podemos cargar un contacto que se guardara en la base de datos y luego nos dirige a /inicio.
+
