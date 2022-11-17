@@ -44,7 +44,10 @@ def resultados_busqueda_producto(request):
     productos=Producto.objects.filter(nombre__icontains=nombre_producto )
     return render(request, "app/resultados_busqueda_producto.html", {"producto":productos})
 
-
+def resultados_contacto(request):
+    
+    contacto=Contacto.objects.all()
+    return render(request, "app/resultados_contacto.html", {"contacto":contacto})
 
 
 

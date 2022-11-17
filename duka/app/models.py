@@ -14,3 +14,7 @@ class Contacto(models.Model):
     email=models.EmailField(max_length=50)
     mensaje=models.CharField(max_length=300)
 
+class Producto_Terceros(models.Model):
+    tipo=models.CharField(max_length=50)
+    nombre=models.CharField(max_length=50)
+    precio=models.IntegerField()
